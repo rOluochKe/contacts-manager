@@ -3,13 +3,11 @@ class ContactsController < ApplicationController
 
   def index
     session[:selected_group_id] = params[:group_id]
-
     if params[:group_id] && !params[:group_id].empty?
-      # @contacts = Contact.where(group_id: params[:group_id]).page(params[:page])
-
-      @contacts = Group.find(params[:group_id]).contacts.order(created_at: :desc).page(params[:page])
+      group = Group.find(params[:group_id])
+      @contacts = group.contacts.search(params[:term]).order(created_at: :desc).page(params[:page])
     else
-      @contacts = Contact.order(created_at: :desc).page(params[:page])
+      @contacts = Contact.search(params[:term]).order(created_at: :desc).page(params[:page])
     end
   end
 
