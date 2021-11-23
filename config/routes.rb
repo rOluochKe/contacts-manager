@@ -8,6 +8,9 @@ Rails.application.routes.draw do
 
   # resources :contacts, only: [:index, :edit, :update]
 
-  resources :contacts, except: [:show]
+  resources :contacts, except: [:show] do
+    get 'autocomplete', on: :collection
+  end
+  post '/groups', to: 'groups#create'
   root 'contacts#index'
 end

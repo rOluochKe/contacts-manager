@@ -33,6 +33,7 @@ gem 'bootstrap-sass'
 gem 'kaminari'
 gem 'paperclip'
 gem 'jasny-bootstrap-rails'
+gem 'jquery-ui-rails', '~> 5.0', '>= 5.0.5'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
