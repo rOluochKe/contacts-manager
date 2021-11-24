@@ -12,7 +12,7 @@ User.destroy_all
 
 user_ids = []
 user_ids << User.create(name: "John Doe", email: "john.doe@gmail.com", password: "123456").id
-user_ids << User.create(name: "Jane Roe", email: "jane.doe@gmail.com", password: "123456").id
+user_ids << User.create(name: "Jane Doe", email: "jane.doe@gmail.com", password: "123456").id
 
 p "2 users created"
 

@@ -32,6 +32,7 @@ require('channels')
 //= require jquery-ui/widgets/autocomplete
 //= require jquery-ui/widgets/menu
 //= require jquery.spin
+//= require toastr
 //= require_tree .
 
 // $(document).on('turbolinks:load', function () {
