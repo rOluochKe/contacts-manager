@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'dashboard/index'
+  get 'home/index'
   # get 'contacts/index', as: 'contacts'
   # get 'contacts/new', as: 'new_contact'
   # post 'contacts/create', as: 'create_contact'
@@ -8,9 +10,15 @@ Rails.application.routes.draw do
 
   # resources :contacts, only: [:index, :edit, :update]
 
+  devise_for :users, path: 'auth', controllers: { registrations: :custom_registrations }, path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }
+
   resources :contacts, except: [:show] do
     get 'autocomplete', on: :collection
   end
+
   post '/groups', to: 'groups#create'
-  root 'contacts#index'
+  
+  get '/dashboard', to: 'dashboard#index'
+  
+  root 'home#index'
 end
